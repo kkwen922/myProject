@@ -81,7 +81,8 @@ public class SalesController {
             timeList_month.add(monthData.getTime());
         }
 
-        Map<String, Object> map = new HashMap<>();
+        int initLenght = 10;
+        Map<String, Object> map = new HashMap<>(initLenght);
         map.put("sumList_week", sumListWeek);
         map.put("timeList_week", timeListWeek);
 
@@ -110,7 +111,8 @@ public class SalesController {
             timeList.add(data.getTime());
         }
 
-        Map<String, Object> map = new HashMap<>();
+        int initLenght= 10;
+        Map<String, Object> map = new HashMap<>(initLenght);
         map.put("sumList", sumList);
         map.put("timeList", timeList);
 
