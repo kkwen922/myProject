@@ -66,11 +66,11 @@ public class SalesController {
         List<TimeAmount> monthList = salesService.getSalesAmountLastMonth();
 
         //Last Week
-        List<String> sumList_week = new ArrayList<>();
-        List<String> timeList_week = new ArrayList<>();
+        List<String> sumListWeek = new ArrayList<>();
+        List<String> timeListWeek = new ArrayList<>();
         for (TimeAmount weekData : weekList) {
-            sumList_week.add(weekData.getAmount().toString());
-            timeList_week.add(weekData.getTime());
+            sumListWeek.add(weekData.getAmount().toString());
+            timeListWeek.add(weekData.getTime());
         }
 
         //Last Month
@@ -82,8 +82,8 @@ public class SalesController {
         }
 
         Map<String, Object> map = new HashMap<>();
-        map.put("sumList_week", sumList_week);
-        map.put("timeList_week", timeList_week);
+        map.put("sumList_week", sumListWeek);
+        map.put("timeList_week", timeListWeek);
 
         map.put("sumList_month",sumList_month);
         map.put("timeList_month", timeList_month);
