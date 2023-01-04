@@ -1,0 +1,73 @@
+server:
+  port: 8080
+
+spring:
+  main:
+    allow-circular-references: true
+  application:
+    name: myProject
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  rabbitmq:
+    virtual-host: /
+    username: guest
+    password: guest
+    port: 5672
+    host: 127.0.0.1
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    auto-mapping-behavior: partial
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+jwt:
+  tokenHeader: Authorization #JWT request Header
+  secret: piteam+70771579 #JWT??????key
+  expiration: 604800 #JWT?????(60*60*24*7)
+  tokenHead: 'Bearer '  #JWT token header ???????
+
+redis:
+  database: myredis
+  key:
+    admin: 'ums:admin'
+    resourceList: 'ums:resourceList'
+  expire:
+    common: 86400 # 24??
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+  endpoint:
+    shutdown:
+      enabled: false
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    my.project: trace
+
+secure:
+  ignored:
+    urls: #url白名單
+      - /**/*.js
+      - /**/*.css
+      - /**/*.png
+      - /**/*.ico
+      - /v3/**
+      - /swagger-ui/**
+      - /actuator/**
+      - /druid/**
+      - /admin/login
+      - /admin/logout
+      - /admin/register
+      - /notify/**

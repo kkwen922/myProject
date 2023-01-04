@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="my.project.modules.ums.mapper.UmsAdminMapper">
+
+    <!-- 通用查詢mapping结果 -->
+    <resultMap id="BaseResultMap" type="my.project.modules.ums.model.UmsAdmin">
+        <id column="id" property="id"/>
+        <result column="company_id" property="companyId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="mobile" property="mobile"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="note" property="note"/>
+        <result column="create_time" property="createTime"/>
+        <result column="login_time" property="loginTime"/>
+        <result column="status" property="status"/>
+        <result column="org_id" property="orgId"/>
+        <result column="creator" property="creator"/>
+    </resultMap>
+
+    <select id="getAdminIdList" resultType="java.lang.Long">
+        SELECT DISTINCT ar.admin_id
+        FROM ums_role_resource_relation rr
+                 LEFT JOIN ums_admin_role_relation ar ON rr.role_id = ar.role_id
+        WHERE rr.resource_id = #{resourceId}
+    </select>
+
+    <select id="getAdminByUsernameAndCompanyId" resultType="my.project.modules.ums.model.UmsAdmin">
+        select a.*,
+               b.name    as orgName,
+               b.name_sn as orgSn
+        from ums_admin a
+                 left join oms_organization b on (a.org_id = b.id)
+        WHERE a.company_id = #{companyId}
+          and a.username like concat('%', #{username}, '%')
+    </select>
+
+    <select id="getAdminByCompanyId" resultType="my.project.modules.ums.model.UmsAdmin">
+        select a.*,
+               b.name    as orgName,
+               b.name_sn as orgSn
+        from ums_admin a
+                 left join oms_organization b on (a.org_id = b.id)
+        where a.company_id = #{companyId}
+    </select>
+
+    <select id="getAdminByUsername" resultType="my.project.modules.ums.model.UmsAdmin">
+        select a.*
+        from ums_admin a
+        where a.username = #{username}
+    </select>
+
+</mapper>
