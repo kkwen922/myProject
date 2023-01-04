@@ -39,7 +39,16 @@ public interface SalesMapper extends BaseMapper<Sales> {
      */
     List<TimeAmount> getSalesAmount();
 
+    /**
+     * getSalesAmountLastWeek
+     * @return
+     */
     List<TimeAmount> getSalesAmountLastWeek();
+
+    /**
+     * getSalesAmountLastMonth
+     * @return
+     */
     List<TimeAmount> getSalesAmountLastMonth();
     /**
      * Get Sales Data
