@@ -188,8 +188,8 @@ public class JwtTokenUtil {
      * 根據用户信息生成token
      */
     public String generateTokenByUserDetails(UserDetails userDetails) {
-        int map_size = 10;
-        Map<String, Object> claims = new HashMap<>(map_size);
+        int initLenght = 10;
+        Map<String, Object> claims = new HashMap<>(initLenght);
         claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
