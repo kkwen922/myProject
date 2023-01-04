@@ -41,7 +41,17 @@ public interface SalesService extends IService<Sales> {
      * @return
      */
     List<TimeAmount> getSalesAmount();
+
+    /**
+     * getSalesAmountLastWeek
+     * @return
+     */
     List<TimeAmount> getSalesAmountLastWeek();
+
+    /**
+     * getSalesAmountLastMonth
+     * @return
+     */
     List<TimeAmount> getSalesAmountLastMonth();
 
     /**
