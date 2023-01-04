@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class OpenApiConfig {
 
     @Bean
-    public OpenAPI springAPI() {
+    public OpenAPI SprintApi() {
         return new OpenAPI()
                 .info(new Info()
                         .title("SpringDoc API Test")
