@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/notify")
 @Slf4j
-@Tag(name = "sendNotify Controller")
-public class sendNotifyController {
+@Tag(name = "SendNotify Controller")
+public class SendNotifyController {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
