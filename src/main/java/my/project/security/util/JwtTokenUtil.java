@@ -99,8 +99,10 @@ public class JwtTokenUtil {
             log.info("CLAINMS==>" + claims.toString());
 
             String payload = claims.toString().replace("{", "").replace("}", "");
-            HashMap<String, String> holder = new HashMap();
+
             String[] keyVals = payload.split(", ");
+            HashMap<String, String> holder = new HashMap(keyVals.length);
+
             for (String keyVal : keyVals) {
                 String[] parts = keyVal.split("=", 2);
                 holder.put(parts[0], parts[1]);
@@ -128,8 +130,9 @@ public class JwtTokenUtil {
             log.info("CLAINMS==>" + claims.toString());
 
             String payload = claims.toString().replace("{", "").replace("}", "");
-            HashMap<String, String> holder = new HashMap();
+
             String[] keyVals = payload.split(", ");
+            HashMap<String, String> holder = new HashMap(keyVals.length);
             for (String keyVal : keyVals) {
                 String[] parts = keyVal.split("=", 2);
                 holder.put(parts[0], parts[1]);
@@ -185,7 +188,8 @@ public class JwtTokenUtil {
      * 根據用户信息生成token
      */
     public String generateTokenByUserDetails(UserDetails userDetails) {
-        Map<String, Object> claims = new HashMap<>();
+        int map_size = 10;
+        Map<String, Object> claims = new HashMap<>(map_size);
         claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
