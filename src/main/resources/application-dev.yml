@@ -3,12 +3,12 @@ spring:
     url: jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Taipei
     username: root
     password: root+123
-  redis:
-    host: localhost # Redis服務主機網址
-    database: 0 # Redis資料庫索引（預設為0）
-    port: 6379 # Redis服務port
-    password: # Redis password（默认为空）
-    timeout: 3000ms # 單位：毫秒
+#  redis:
+#    host: localhost # Redis服務主機網址
+#    database: 0 # Redis資料庫索引（預設為0）
+#    port: 6379 # Redis服務port
+#    password: # Redis password（默认为空）
+#    timeout: 3000ms # 單位：毫秒
 
 logging:
   level:

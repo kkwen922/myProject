@@ -34,13 +34,13 @@ jwt:
   expiration: 604800 #JWT?????(60*60*24*7)
   tokenHead: 'Bearer '  #JWT token header ???????
 
-redis:
-  database: myredis
-  key:
-    admin: 'ums:admin'
-    resourceList: 'ums:resourceList'
-  expire:
-    common: 86400 # 24??
+#redis:
+#  database: myredis
+#  key:
+#    admin: 'ums:admin'
+#    resourceList: 'ums:resourceList'
+#  expire:
+#    common: 86400 # 24??
 
 management:
   endpoints:
