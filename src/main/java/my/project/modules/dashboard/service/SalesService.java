@@ -59,4 +59,10 @@ public interface SalesService extends IService<Sales> {
      * @return
      */
     List<TimeAmount> getSalesCount();
+
+    /**
+     * getTodaySalesCount
+     * @return
+     */
+    Integer getTodaySalesCount();
 }

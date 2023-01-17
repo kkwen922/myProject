@@ -65,4 +65,10 @@
         group by cpname
         order by value desc limit 5
     </select>
+
+    <select id="getTodaySalesCount" resultType="java.lang.Integer">
+        select count(*) as amount
+        from sales t
+        where  DATE(t.tx_time) = current_date()
+    </select>
 </mapper>

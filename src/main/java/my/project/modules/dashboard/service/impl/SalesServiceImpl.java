@@ -58,5 +58,9 @@ public class SalesServiceImpl extends ServiceImpl<SalesMapper, Sales> implements
         return salesMapper.getSalesCount();
     }
 
+    public Integer getTodaySalesCount() {
+        return salesMapper.getTodaySalesCount();
+    }
+
 
 }

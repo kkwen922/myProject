@@ -55,4 +55,10 @@ public interface SalesMapper extends BaseMapper<Sales> {
      * @return
      */
     List<TimeAmount> getSalesCount();
+
+    /**
+     * Get Today Sales  Count
+     * @return
+     */
+    Integer getTodaySalesCount();
 }

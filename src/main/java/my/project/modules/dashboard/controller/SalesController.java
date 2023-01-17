@@ -93,9 +93,10 @@ public class SalesController {
 
     }
 
+
     @RequestMapping(value = "/getSalesCount", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult<Map<String, Object>> a(
+    public CommonResult<Map<String, Object>> getSalesCount(
             @RequestHeader(value = "Authorization") String bearer,
             @RequestHeader(value = "User-Agent") String userAgent,
             @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
@@ -118,5 +119,11 @@ public class SalesController {
 
         return CommonResult.success(map);
 
+    }
+    @RequestMapping(value = "/getTodaySalesCount", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult getTodaySalesCount(){
+        Integer result = salesService.getTodaySalesCount();
+        return CommonResult.success(result);
     }
 }

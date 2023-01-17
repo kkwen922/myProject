@@ -39,7 +39,8 @@ public class UmsEventLogServiceImpl extends ServiceImpl<UmsEventLogMapper, UmsEv
 
         if (StrUtil.isNotEmpty(keyword)) {
             lambda.like(UmsEventLog::getEvent, keyword).or()
-                    .eq(UmsEventLog::getResult, keyword);
+                    .eq(UmsEventLog::getResult, keyword).or()
+                    .like(UmsEventLog::getMemo,keyword);
         }
 
         return page(page, wrapper);
